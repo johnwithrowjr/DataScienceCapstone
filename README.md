@@ -88,7 +88,7 @@ pal <- brewer.pal(8,"Dark2")
 wordcloud(cpsBlogs, min.freq=3, max.words = Inf, width=1000, height=-1000, random.order = FALSE, color=pal)
 ```
 
-![plot of chunk termDocumentMatrixBlogs](figure/termDocumentMatrixBlogs-1.png)
+![plot of chunk termDocumentMatrixBlogs](README_files/figure-html/termDocumentMatrixBlogs-1.png)
 
 ```r
 topWordsBlogs <- data.frame(Term=tdmBlogs$dimnames$Terms[tdmBlogs$i[tdmBlogs$v>9]],Freq=tdmBlogs$v[tdmBlogs$v>9])
