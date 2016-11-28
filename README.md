@@ -1,9 +1,6 @@
----
-title: "Coursera Johns Hopkins Capstone Project for Data Science Certification"
-author: "John Withrow, PhD"
-date: "November 19, 2016"
-output: html_document
----
+# Coursera Johns Hopkins Capstone Project for Data Science Certification
+## John Withrow, PhD
+## November 27, 2016
 
 
 
@@ -67,14 +64,7 @@ The corpus is generated and cleaned.
 ```r
 cpsBlogs <- Corpus(VectorSource(blogs))
 cpsBlogs <- tm_map(cpsBlogs, PlainTextDocument)
-cpsBlogs <- tm_map(cpsBlogs, removePunctuation)
-```
-
-```
-## Error in get(as.character(FUN), mode = "function", envir = envir): object 'FUN' of mode 'function' was not found
-```
-
-```r
+#cpsBlogs <- tm_map(cpsBlogs, removePunctuation)
 cpsBlogs <- tm_map(cpsBlogs, stripWhitespace)
 cpsBlogs <- tm_map(cpsBlogs, tolower)
 cpsBlogs <- tm_map(cpsBlogs, removeWords, stopwords(kind="en"))
@@ -88,7 +78,7 @@ pal <- brewer.pal(8,"Dark2")
 wordcloud(cpsBlogs, min.freq=3, max.words = Inf, width=1000, height=-1000, random.order = FALSE, color=pal)
 ```
 
-![plot of chunk termDocumentMatrixBlogs](README_files/figure-html/termDocumentMatrixBlogs-1.png)
+![plot of chunk termDocumentMatrixBlogs](figure/termDocumentMatrixBlogs-1.png)
 
 ```r
 topWordsBlogs <- data.frame(Term=tdmBlogs$dimnames$Terms[tdmBlogs$i[tdmBlogs$v>9]],Freq=tdmBlogs$v[tdmBlogs$v>9])
@@ -130,14 +120,7 @@ The corpus is generated and cleaned.
 ```r
 cpsNews <- Corpus(VectorSource(news))
 cpsNews <- tm_map(cpsNews, PlainTextDocument)
-cpsNews <- tm_map(cpsNews, removePunctuation)
-```
-
-```
-## Error in get(as.character(FUN), mode = "function", envir = envir): object 'FUN' of mode 'function' was not found
-```
-
-```r
+#cpsNews <- tm_map(cpsNews, removePunctuation)
 cpsNews <- tm_map(cpsNews, stripWhitespace)
 cpsNews <- tm_map(cpsNews, tolower)
 cpsNews <- tm_map(cpsNews, removeWords, stopwords(kind="en"))
@@ -201,14 +184,7 @@ The corpus is generated and cleaned.
 ```r
 cpsTwitter <- Corpus(VectorSource(twitter))
 cpsTwitter <- tm_map(cpsTwitter, PlainTextDocument)
-cpsTwitter <- tm_map(cpsTwitter, removePunctuation)
-```
-
-```
-## Error in get(as.character(FUN), mode = "function", envir = envir): object 'FUN' of mode 'function' was not found
-```
-
-```r
+#cpsTwitter <- tm_map(cpsTwitter, removePunctuation)
 cpsTwitter <- tm_map(cpsTwitter, stripWhitespace)
 cpsTwitter <- tm_map(cpsTwitter, tolower)
 cpsTwitter <- tm_map(cpsTwitter, removeWords, stopwords(kind="en"))
