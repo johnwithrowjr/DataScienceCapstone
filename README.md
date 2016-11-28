@@ -78,17 +78,17 @@ pal <- brewer.pal(8,"Dark2")
 wordcloud(cpsBlogs, min.freq=3, max.words = Inf, width=1000, height=-1000, random.order = FALSE, color=pal)
 ```
 
-![plot of chunk termDocumentMatrixBlogs](figure/termDocumentMatrixBlogs-1.png)
+![plot of chunk termDocumentMatrixBlogs](README_files/figure-html/termDocumentMatrixBlogs-1.png)
 
 ```r
-topWordsBlogs <- data.frame(Term=tdmBlogs$dimnames$Terms[tdmBlogs$i[tdmBlogs$v>9]],Freq=tdmBlogs$v[tdmBlogs$v>9])
+topWordsBlogs <- data.frame(Term=tdmBlogs$dimnames$Terms[tdmBlogs$i[tdmBlogs$v>4]],Freq=tdmBlogs$v[tdmBlogs$v>4])
 topWordsBlogs$EstimatedTotal <- round(topWordsBlogs$Freq*origLengthBlogs/sampleSizeBlogs)
 topWordsBlogs
 ```
 
 ```
-## [1] Term           Freq           EstimatedTotal
-## <0 rows> (or 0-length row.names)
+##    Term Freq EstimatedTotal
+## 1 games    5          44964
 ```
 Lastly, a logarithmic histogram is generated to show the distribution of words with different levels of occurrence.
 
@@ -97,7 +97,7 @@ histBlogs <- hist(tdmBlogs$v,breaks=(seq(0,max(tdmBlogs$v))+0.5),plot=FALSE)
 plot(histBlogs$mids,histBlogs$counts,log="y",axes=TRUE,xlab="Number of Instances",ylab="Number of Words",main="Histogram Showing Number of Words by Number of Instances")
 ```
 
-![plot of chunk histogramBlogs](figure/histogramBlogs-1.png)
+![plot of chunk histogramBlogs](README_files/figure-html/histogramBlogs-1.png)
 
 ### Loading News Data
 Upon loading the news data, a statement is generated below the code indicating the size of the total file, of which we are sampling a random subset of lines for the creation of the corpus.
@@ -134,17 +134,101 @@ pal <- brewer.pal(8,"Dark2")
 wordcloud(cpsNews, min.freq=3, max.words = Inf, width=1000, height=-1000, random.order = FALSE, color=pal)
 ```
 
-![plot of chunk termDocumentMatrixNews](figure/termDocumentMatrixNews-1.png)
+![plot of chunk termDocumentMatrixNews](README_files/figure-html/termDocumentMatrixNews-1.png)
 
 ```r
-topWordsNews <- data.frame(Term=tdmNews$dimnames$Terms[tdmNews$i[tdmNews$v>4]],Freq=tdmNews$v[tdmNews$v>4])
+topWordsNews <- data.frame(Term=tdmNews$dimnames$Terms[tdmNews$i[tdmNews$v>2]],Freq=tdmNews$v[tdmNews$v>2])
 topWordsNews$EstimatedTotal <- round(topWordsNews$Freq*origLengthNews/sampleSizeNews)
 topWordsNews
 ```
 
 ```
-##     Term Freq EstimatedTotal
-## 1 yogurt    5            386
+##           Term Freq EstimatedTotal
+## 1     campaign    3            232
+## 2        music    3            232
+## 3          law    3            232
+## 4       pujols    3            232
+## 5        women    3            232
+## 6         just    3            232
+## 7         less    3            232
+## 8         just    3            232
+## 9        yards    3            232
+## 10      things    3            232
+## 11       trade    3            232
+## 12         ...    3            232
+## 13     fleming    3            232
+## 14      levels    3            232
+## 15        will    4            309
+## 16        like    3            232
+## 17        like    3            232
+## 18       bynum    3            232
+## 19       grass    3            232
+## 20        crab    3            232
+## 21 restaurants    3            232
+## 22        d.c.    3            232
+## 23         mls    3            232
+## 24      united    3            232
+## 25         ...    3            232
+## 26   stevenson    3            232
+## 27      wilson    3            232
+## 28       great    3            232
+## 29      awards    4            309
+## 30    national    3            232
+## 31      racing    3            232
+## 32         ump    4            309
+## 33   trademark    3            232
+## 34        ball    4            309
+## 35    students    3            232
+## 36       class    4            309
+## 37       email    3            232
+## 38        ever    3            232
+## 39         usc    3            232
+## 40      booked    3            232
+## 41      county    3            232
+## 42       jail;    3            232
+## 43      orange    3            232
+## 44   suspicion    4            309
+## 45         ...    3            232
+## 46   wilkerson    3            232
+## 47     percent    4            309
+## 48         â<U+0080><U+0094>    3            232
+## 49        free    3            232
+## 50        road    3            232
+## 51        room    3            232
+## 52       opera    3            232
+## 53  government    3            232
+## 54     chamber    3            232
+## 55     charles    3            232
+## 56    customer    4            309
+## 57         st.    4            309
+## 58         hit    3            232
+## 59     perkins    3            232
+## 60        vote    3            232
+## 61        just    3            232
+## 62      really    3            232
+## 63     believe    3            232
+## 64      proven    3            232
+## 65       water    3            232
+## 66      yogurt    5            386
+## 67       music    3            232
+## 68       ready    3            232
+## 69      really    3            232
+## 70        time    3            232
+## 71        pete    3            232
+## 72        park    3            232
+## 73      scored    3            232
+## 74         ...    4            309
+## 75      points    3            232
+## 76       since    3            232
+## 77        know    3            232
+## 78      people    3            232
+## 79        will    3            232
+## 80     parents    3            232
+## 81         two    3            232
+## 82       bhatt    3            232
+## 83       april    3            232
+## 84        ford    4            309
+## 85    children    3            232
 ```
 Lastly, a logarithmic histogram is generated to show the distribution of words with different levels of occurrence.
 
@@ -153,7 +237,7 @@ histNews <- hist(tdmNews$v,breaks=(seq(0,max(tdmNews$v))+0.5),plot=FALSE)
 plot(histNews$mids,histNews$counts,log="y",axes=TRUE,xlab="Number of Instances",ylab="Number of Words",main="Histogram Showing Number of Words by Number of Instances")
 ```
 
-![plot of chunk histogramNews](figure/histogramNews-1.png)
+![plot of chunk histogramNews](README_files/figure-html/histogramNews-1.png)
 
 ### Loading Twitter Data
 Upon loading the twitter data, a statement is generated below the code indicating the size of the total file, of which we are sampling a random subset of lines for the creation of the corpus.
@@ -198,7 +282,7 @@ pal <- brewer.pal(8,"Dark2")
 wordcloud(cpsTwitter, min.freq=3, max.words = Inf, width=2000, height=-2000, random.order = FALSE, color=pal)
 ```
 
-![plot of chunk termDocumentMatrixTwitter](figure/termDocumentMatrixTwitter-1.png)
+![plot of chunk termDocumentMatrixTwitter](README_files/figure-html/termDocumentMatrixTwitter-1.png)
 
 ```r
 topWordsTwitter <- data.frame(Term=tdmTwitter$dimnames$Terms[tdmTwitter$i[tdmTwitter$v>2]],Freq=tdmTwitter$v[tdmTwitter$v>2])
@@ -225,7 +309,7 @@ histTwitter <- hist(tdmTwitter$v,breaks=(seq(0,max(tdmTwitter$v))+0.5),plot=FALS
 plot(histTwitter$mids,histTwitter$counts,log="y",axes=TRUE,xlab="Number of Instances",ylab="Number of Words",main="Histogram Showing Number of Words by Number of Instances")
 ```
 
-![plot of chunk histogramTwitter](figure/histogramTwitter-1.png)
+![plot of chunk histogramTwitter](README_files/figure-html/histogramTwitter-1.png)
 
 ```r
 #tdmTwitter$dimnames$Terms
